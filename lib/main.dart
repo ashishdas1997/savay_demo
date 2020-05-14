@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Savay',
       theme: ThemeData(
           fontFamily: 'sen',
-          primaryColor: Color.fromRGBO(248, 248, 248, 1),),
+          primaryColor: Color.fromRGBO(49, 67, 89, 1),),
       home: Filters(),
     );
   }

@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'recent_screen.dart';
 
 class Details extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
+      backgroundColor: Color.fromRGBO(248, 248, 248, 1),
       body: SafeArea(
         right: true,
         child: Container(
@@ -18,7 +19,7 @@ class Details extends StatelessWidget {
                 child: Text(
                   'Library',
                   style: TextStyle(
-                      fontSize: 22,
+                      fontSize: 23,
                       color: Color.fromRGBO(49, 67, 89, 1),
                       fontWeight: FontWeight.bold),
                 ),
@@ -40,14 +41,12 @@ class Details extends StatelessWidget {
                       Text(
                         'Categories',
                         style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.grey.shade600
-                        ),
+                            fontSize: 16, color: Colors.grey.shade600),
                       ),
                       Text(
                         'Favourites',
-                        style: TextStyle(fontSize: 16,
-                        color: Colors.grey.shade600),
+                        style: TextStyle(
+                            fontSize: 16, color: Colors.grey.shade600),
                       ),
                     ],
                   ),
@@ -70,7 +69,7 @@ class Details extends StatelessWidget {
                     Text(
                       ' See all',
                       style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 15,
                           fontWeight: FontWeight.w900,
                           color: Color.fromRGBO(0, 177, 255, 0.8)),
                     ),
@@ -81,8 +80,11 @@ class Details extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: <Widget>[
-                    RecentScreen(),
-                    RecentScreen(),
+                    RecentScreen(
+                        "Maharastra to close shops, offic...",
+                        'images/elephant.jpg'),
+                    RecentScreen( "Iran's coronavirus deaths rise to...",
+                        'images/covid.jpg'),
                   ],
                 ),
               ),
@@ -102,7 +104,7 @@ class Details extends StatelessWidget {
                     Text(
                       ' See all',
                       style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 15,
                           fontWeight: FontWeight.w900,
                           color: Color.fromRGBO(0, 177, 255, 0.8)),
                     ),
@@ -113,8 +115,10 @@ class Details extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: <Widget>[
-                    RecentScreen(),
-                    RecentScreen(),
+                    RecentScreen( "Fruitful- Free WordPress...",
+                        'images/wordpress.jpg'),
+                    RecentScreen( "White robot human features",
+                        'images/robo.jpg'),
                   ],
                 ),
               ),

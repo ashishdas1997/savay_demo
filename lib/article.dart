@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 
 class Article{
   final String id;
@@ -9,6 +9,6 @@ class Article{
     @required this.id,
     @required this.title,
     @required this.imageLink
-})
+});
 
 }
