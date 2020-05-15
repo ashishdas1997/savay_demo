@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 class RecentScreen extends StatelessWidget {
   final String title;
   final String imageLink;
-  final bool fav;
-  RecentScreen(this.title, this.imageLink, this.fav);
+  RecentScreen(this.title, this.imageLink);
 
   @override
   Widget build(BuildContext context) {
