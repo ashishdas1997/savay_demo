@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
           primaryColor: Color.fromRGBO(49, 67, 89, 1),
           primaryColorDark: Colors.grey.shade900,
           primaryColorLight: Colors.grey.shade700,
-          accentColor: Color.fromRGBO(248, 248, 248, 1)),
+          accentColor: Color.fromRGBO(0, 177, 255, 1)),
       home: Filters(),
     );
   }

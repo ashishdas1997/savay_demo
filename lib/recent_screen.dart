@@ -8,11 +8,12 @@ class RecentScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(20),
-      child: Container(
-        height: 225,
-        width: 180,
+    return Container(
+      padding: EdgeInsets.only(left: 10),
+      height: 225,
+      width: 195,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(10),
         child: Card(
           child: Wrap(
             children: [
@@ -20,7 +21,7 @@ class RecentScreen extends StatelessWidget {
                 children: <Widget>[
                   Image.asset(
                     imageLink,
-                    width: 180,
+                    width: 195,
                     height: 115,
                     fit: BoxFit.fitWidth,
                   ),
@@ -29,7 +30,10 @@ class RecentScreen extends StatelessWidget {
                     child: Text(
                       title,
                       style: TextStyle(
-                          fontSize: 16, color: Color.fromRGBO(49, 67, 89, 0.8)),
+                          fontSize: 16, color: Color.fromRGBO(49, 67, 89, 0.8),
+                        fontWeight: FontWeight.w900
+
+                      ),
                     ),
                   ),
                   Padding(
