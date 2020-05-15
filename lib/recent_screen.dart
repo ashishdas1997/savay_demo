@@ -24,6 +24,8 @@ class RecentScreen extends StatelessWidget {
                     width: 195,
                     height: 115,
                     fit: BoxFit.fitWidth,
+
+
                   ),
                   Padding(
                     padding: EdgeInsets.all(15),
