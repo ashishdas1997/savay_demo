@@ -40,11 +40,11 @@ class RecentScreen extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
-                            if(fav) ? Icon(
+                            Icon(
                             Icons.favorite,
                           color: Colors.grey,
                               size: 15,
-                          ),z
+                          ),
                             VerticalDivider(),
                             Icon(
                               Icons.event_note,
