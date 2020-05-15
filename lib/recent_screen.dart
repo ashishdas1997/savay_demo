@@ -12,7 +12,7 @@ class RecentScreen extends StatelessWidget {
       borderRadius: BorderRadius.circular(20),
       child: Container(
         height: 225,
-        width: 190,
+        width: 180,
         child: Card(
           child: Wrap(
             children: [
@@ -20,7 +20,7 @@ class RecentScreen extends StatelessWidget {
                 children: <Widget>[
                   Image.asset(
                     imageLink,
-                    width: 190,
+                    width: 180,
                     height: 115,
                     fit: BoxFit.fitWidth,
                   ),
