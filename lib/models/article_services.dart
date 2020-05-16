@@ -13,7 +13,7 @@ const Recent_Articles=const [
   Article(id: 'r2',
     title: "Iran's coronavirus deaths rise to...",
     imageLink: "images/covid.jpg",
-    addedTime: "49hr ago",
+    addedTime: "49m ago",
     contentType: "Video",
 
   ),
@@ -45,6 +45,30 @@ const Technology_Articles=const[
     imageLink: "images/iot.jpg",
     addedTime: "3hr ago",
     contentType: "Video"
+
+  ),
+];
+
+const Movie_Articles=const[
+  Article(
+      id: 'm1',
+      title: "The Shawshank Redemption-Mov.. ",
+      imageLink: "images/shr.jpg",
+      addedTime: "5m ago",
+      contentType: "Video"
+
+  ),
+  Article(id: 'm2',
+      title: "Dangal-Official Trailer",
+      imageLink: "images/dangal.jpg",
+      addedTime: "26m ago",
+      contentType: "Video"
+  ),
+  Article(id: 'm3',
+      title: "Review- The Fault in Our Stars",
+      imageLink: "images/fault.jpg",
+      addedTime: "1hr ago",
+      contentType: "Text"
 
   ),
 ];

@@ -52,6 +52,9 @@ flutter:
     - images/iot.jpg
     - images/robo.jpg
     - images/wordpress.jpg
+    - images/dangal.jpg
+    - images/shr.jpg
+    - images/fault.jpg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

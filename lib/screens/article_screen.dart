@@ -50,58 +50,18 @@ class ArticleScreen extends StatelessWidget {
             ),
           ),
         ),
-        body: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.only(top: 20, bottom: 10, left: 8),
-                  child: Text(
-                    ' Recent',
-                    style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w900,
-                        color: Color.fromRGBO(49, 67, 89, 0.8)),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(right: 30),
-                  child: Text(
-                    ' See all',
-                    style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w900,
-                        color: Theme.of(context).accentColor),
-                  ),
-                ),
-              ],
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: Recent_Articles.map(
-                  (artData) => ArticleCard(
-                      artData.title,
-                      artData.imageLink,
-                      artData.addedTime,
-                    artData.contentType
-
-                  ),
-                ).toList(),
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 15),
-              alignment: Alignment.topLeft,
-              child: Row(
+        body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Padding(
-                    padding: EdgeInsets.only(top: 5, left: 8),
+                    padding: EdgeInsets.only(top: 20, bottom: 10, left: 8),
                     child: Text(
-                      ' Technology',
+                      ' Recent',
                       style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w900,
@@ -120,21 +80,102 @@ class ArticleScreen extends StatelessWidget {
                   ),
                 ],
               ),
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: Technology_Articles.map((techData) => ArticleCard(
-                        techData.title,
-                    techData.imageLink,
-                    techData.addedTime,
-                techData.contentType
-                ))
-                    .toList(),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: Recent_Articles.map(
+                    (artData) => ArticleCard(
+                        artData.title,
+                        artData.imageLink,
+                        artData.addedTime,
+                      artData.contentType
+
+                    ),
+                  ).toList(),
+                ),
               ),
-            ),
-          ],
+              Container(
+                padding: EdgeInsets.symmetric(vertical: 15),
+                alignment: Alignment.topLeft,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.only(top: 5, left: 8),
+                      child: Text(
+                        ' Technology',
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w900,
+                            color: Color.fromRGBO(49, 67, 89, 0.8)),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(right: 30),
+                      child: Text(
+                        ' See all',
+                        style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w900,
+                            color: Theme.of(context).accentColor),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: Technology_Articles.map((techData) => ArticleCard(
+                          techData.title,
+                      techData.imageLink,
+                      techData.addedTime,
+                  techData.contentType
+                  ))
+                      .toList(),
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.only(top: 20, bottom: 10, left: 8),
+                    child: Text(
+                      ' Movies',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w900,
+                          color: Color.fromRGBO(49, 67, 89, 0.8)),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(right: 30),
+                    child: Text(
+                      ' See all',
+                      style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w900,
+                          color: Theme.of(context).accentColor),
+                    ),
+                  ),
+                ],
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: Movie_Articles.map((movieData) => ArticleCard(
+                      movieData.title,
+                      movieData.imageLink,
+                      movieData.addedTime,
+                      movieData.contentType
+                  ))
+                      .toList(),
+                ),
+              ),
+            ],
+          ),
         ),
+
         bottomNavigationBar: BottomNavigationBar(
           selectedItemColor: Theme.of(context).accentColor,
           unselectedItemColor: Theme.of(context).primaryColorLight,
