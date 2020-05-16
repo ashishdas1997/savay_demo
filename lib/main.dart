@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:savaydemo/detail.dart';
-import 'recent_screen.dart';
+import 'screens/article_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -25,6 +24,6 @@ class MyApp extends StatelessWidget {
 class Filters extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Details();
+    return ArticleScreen();
   }
 }

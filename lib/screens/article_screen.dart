@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'recent_screen.dart';
+import '../models/article_services.dart';
+import 'article_card.dart';
 
-class Details extends StatelessWidget {
+class ArticleScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return
-      DefaultTabController(
-        length: 3,
-        child: Scaffold(
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
         appBar: AppBar(
           backgroundColor: Color.fromRGBO(248, 248, 248, 1),
           title: Text(
@@ -73,9 +73,7 @@ class Details extends StatelessWidget {
                     style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w900,
-                        color:
-                    Theme.of(context).accentColor
-                    ),
+                        color: Theme.of(context).accentColor),
                   ),
                 ),
               ],
@@ -83,13 +81,13 @@ class Details extends StatelessWidget {
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                children: <Widget>[
-                  RecentScreen("Maharastra to close shops,offic...",
-                      'images/elephant.jpg'),
-                  RecentScreen("Iran's coronavirus deaths rise to...",
-                      'images/covid.jpg'),
-                  RecentScreen("IOT myth part 4 detailed...", 'images/iot.jpg'),
-                ],
+                children:
+                  Recent_Articles.map(
+                        (artData) => ArticleCard(
+                      artData.title,
+                      artData.imageLink,
+                    ),
+                  ).toList(),
               ),
             ),
             Container(
@@ -115,8 +113,7 @@ class Details extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.w900,
-                          color:Theme.of(context).accentColor
-                      ),
+                          color: Theme.of(context).accentColor),
                     ),
                   ),
                 ],
@@ -125,12 +122,11 @@ class Details extends StatelessWidget {
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                children: <Widget>[
-                  RecentScreen(
-                      "Fruitful- Free WordPress...", 'images/wordpress.jpg'),
-                  RecentScreen("White robot human features", 'images/robo.jpg'),
-                  RecentScreen("IOT myth part 4 detailed...", 'images/iot.jpg')
-                ],
+                children: Technology_Articles
+                    .map((techData) => ArticleCard(
+                    techData.title,
+                    techData.imageLink)
+                ).toList(),
               ),
             ),
           ],
@@ -140,13 +136,14 @@ class Details extends StatelessWidget {
           unselectedItemColor: Theme.of(context).primaryColorLight,
           currentIndex: 2,
           showUnselectedLabels: true,
-          unselectedLabelStyle: TextStyle(
-            color: Theme.of(context).primaryColorLight
-          ),
+          unselectedLabelStyle:
+              TextStyle(color: Theme.of(context).primaryColorLight),
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
-              title: Text('Home',),
+              title: Text(
+                'Home',
+              ),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.search),
@@ -166,7 +163,7 @@ class Details extends StatelessWidget {
             ),
           ],
         ),
-    ),
-      );
+      ),
+    );
   }
 }

@@ -5,7 +5,7 @@ class Article{
   final String title;
   final String imageLink;
 
-  Article({
+  const Article({
     @required this.id,
     @required this.title,
     @required this.imageLink

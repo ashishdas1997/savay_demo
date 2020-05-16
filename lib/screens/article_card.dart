@@ -1,10 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class RecentScreen extends StatelessWidget {
+class ArticleCard extends StatelessWidget {
   final String title;
   final String imageLink;
-  RecentScreen(this.title, this.imageLink);
+  ArticleCard(this.title, this.imageLink);
 
   @override
   Widget build(BuildContext context) {
