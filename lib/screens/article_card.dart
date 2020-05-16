@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 class ArticleCard extends StatelessWidget {
   final String title;
   final String imageLink;
-  ArticleCard(this.title, this.imageLink);
+  final String addedTime;
+  final String contentType;
+  ArticleCard(this.title, this.imageLink, this.addedTime, this.contentType);
 
   @override
   Widget build(BuildContext context) {
@@ -78,22 +80,32 @@ class ArticleCard extends StatelessWidget {
                             width: 3,
                           ),
                           Text(
-                            '13m ago',
+                            addedTime,
                             style: TextStyle(fontSize: 14, color: Colors.grey),
                           ),
                           SizedBox(
                             width: 15,
                           ),
-                          Icon(
+                           (contentType== 'Audio')?Icon(
                             Icons.audiotrack,
                             size: 15,
                             color: Colors.grey.shade400,
-                          ),
+                          )
+                          : (contentType=='Video')? Icon(
+                            Icons.play_arrow,
+                            size: 15,
+                            color: Colors.grey.shade400,
+                          )
+                          :Icon(
+                    Icons.event_note,
+                    size: 15,
+                      color: Colors.grey.shade400,
+                    ),
                           SizedBox(
-                            height: 3,
+                            width:5 ,
                           ),
                           Text(
-                            'Audio',
+                            contentType,
                             style: TextStyle(fontSize: 13, color: Colors.grey),
                           )
                         ],

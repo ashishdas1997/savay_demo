@@ -81,13 +81,15 @@ class ArticleScreen extends StatelessWidget {
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                children:
-                  Recent_Articles.map(
-                        (artData) => ArticleCard(
+                children: Recent_Articles.map(
+                  (artData) => ArticleCard(
                       artData.title,
                       artData.imageLink,
-                    ),
-                  ).toList(),
+                      artData.addedTime,
+                    artData.contentType
+
+                  ),
+                ).toList(),
               ),
             ),
             Container(
@@ -122,11 +124,13 @@ class ArticleScreen extends StatelessWidget {
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                children: Technology_Articles
-                    .map((techData) => ArticleCard(
-                    techData.title,
-                    techData.imageLink)
-                ).toList(),
+                children: Technology_Articles.map((techData) => ArticleCard(
+                        techData.title,
+                    techData.imageLink,
+                    techData.addedTime,
+                techData.contentType
+                ))
+                    .toList(),
               ),
             ),
           ],
