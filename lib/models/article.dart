@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 
 class Article {
+  final String type;
   final String id;
   final String title;
   final String imageLink;
@@ -10,7 +11,9 @@ class Article {
   bool isFavourite;
 
   Article(
-      {@required this.id,
+      {
+        @required this.type,
+        @required this.id,
       @required this.title,
       @required this.imageLink,
       @required this.addedTime,

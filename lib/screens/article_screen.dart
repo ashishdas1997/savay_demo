@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../models/article_services.dart';
+import '../services/article_services.dart';
 import 'article_card.dart';
 
 class ArticleScreen extends StatelessWidget {
@@ -83,13 +83,8 @@ class ArticleScreen extends StatelessWidget {
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
-                  children: Recent_Articles.map(
-                    (artData) => ArticleCard(
-                      artData.title,
-                      artData.imageLink,
-                      artData.addedTime,
-                      artData.contentType,
-                    ),
+                  children: Services.map(
+                    (artData) => ArticleCard(artData: artData),
                   ).toList(),
                 ),
               ),
@@ -125,12 +120,7 @@ class ArticleScreen extends StatelessWidget {
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
-                  children: Technology_Articles.map((techData) => ArticleCard(
-                        techData.title,
-                        techData.imageLink,
-                        techData.addedTime,
-                        techData.contentType,
-                      )).toList(),
+                  children: Services.map((artData) => ArticleCard(artData: artData)).toList(),
                 ),
               ),
               Row(
@@ -161,12 +151,7 @@ class ArticleScreen extends StatelessWidget {
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
-                  children: Movie_Articles.map((movieData) => ArticleCard(
-                        movieData.title,
-                        movieData.imageLink,
-                        movieData.addedTime,
-                        movieData.contentType,
-                      )).toList(),
+                  children: Services.map((artData) => ArticleCard(artData: artData)).toList(),
                 ),
               ),
             ],

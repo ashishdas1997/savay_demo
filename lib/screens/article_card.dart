@@ -1,22 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../services/article_services.dart';
 import '../models/article.dart';
 
 class ArticleCard extends StatefulWidget {
-  final String title;
-  final String imageLink;
-  final String addedTime;
-  final String contentType;
-
-  ArticleCard(this.title, this.imageLink, this.addedTime, this.contentType);
-
+  final Article artData;
+  ArticleCard({this.artData});
   @override
   _ArticleCardState createState() => _ArticleCardState();
 }
 
 class _ArticleCardState extends State<ArticleCard> {
-  bool isFavourite = false;
+bool isFavourite=false;
 
+void toggleFavouriteStatus() {
+  setState(() {
+    print(isFavourite);
+    isFavourite = !isFavourite;
+  });
+}
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,8 +34,7 @@ class _ArticleCardState extends State<ArticleCard> {
                   children: <Widget>[
                     Stack(
                       children: <Widget>[
-                        Image.asset(
-                          widget.imageLink,
+                        Image.asset(widget.artData.imageLink,
                           width: 195,
                           height: 115,
                           fit: BoxFit.fitWidth,
@@ -53,10 +54,9 @@ class _ArticleCardState extends State<ArticleCard> {
                                   Container(
                                     padding: EdgeInsets.all(0.0),
                                     child: GestureDetector(
+                                      behavior: HitTestBehavior.translucent,
                                       child: Icon(
-                                        (isFavourite
-                                            ? Icons.favorite
-                                            : Icons.favorite_border),
+                                        (isFavourite ? Icons.favorite : Icons.favorite_border),
                                         color: Colors.grey,
                                         size: 16,
                                       ),
@@ -65,7 +65,7 @@ class _ArticleCardState extends State<ArticleCard> {
                                   ),
                                   VerticalDivider(),
                                   GestureDetector(
-                                    child: Icon(
+                                   child :  Icon(
                                       Icons.event_note,
                                       color: Colors.grey,
                                       size: 16,
@@ -82,7 +82,7 @@ class _ArticleCardState extends State<ArticleCard> {
                 Padding(
                   padding: EdgeInsets.all(15),
                   child: Text(
-                    widget.title,
+                    widget.artData.title,
                     style: TextStyle(
                         fontSize: 16,
                         color: Color.fromRGBO(49, 67, 89, 0.8),
@@ -103,19 +103,19 @@ class _ArticleCardState extends State<ArticleCard> {
                         width: 3,
                       ),
                       Text(
-                        widget.addedTime,
+                        widget.artData.addedTime,
                         style: TextStyle(fontSize: 14, color: Colors.grey),
                       ),
                       SizedBox(
                         width: 15,
                       ),
-                      (widget.contentType == 'Audio')
+                      (widget.artData.contentType == 'Audio')
                           ? Icon(
                               Icons.audiotrack,
                               size: 15,
                               color: Colors.grey.shade400,
                             )
-                          : (widget.contentType == 'Video')
+                          : (widget.artData.contentType == 'Video')
                               ? Icon(
                                   Icons.play_arrow,
                                   size: 15,
@@ -130,7 +130,7 @@ class _ArticleCardState extends State<ArticleCard> {
                         width: 5,
                       ),
                       Text(
-                        widget.contentType,
+                        widget.artData.contentType,
                         style: TextStyle(fontSize: 13, color: Colors.grey),
                       )
                     ],
@@ -142,9 +142,5 @@ class _ArticleCardState extends State<ArticleCard> {
     );
   }
 
-  void toggleFavouriteStatus() {
-    setState(() {
-      isFavourite = !isFavourite;
-    });
-  }
+
 }
