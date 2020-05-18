@@ -88,7 +88,7 @@ class ArticleScreen extends StatelessWidget {
                         artData.title,
                         artData.imageLink,
                         artData.addedTime,
-                      artData.contentType
+                      artData.contentType,
 
                     ),
                   ).toList(),
@@ -130,7 +130,7 @@ class ArticleScreen extends StatelessWidget {
                           techData.title,
                       techData.imageLink,
                       techData.addedTime,
-                  techData.contentType
+                  techData.contentType,
                   ))
                       .toList(),
                 ),
@@ -167,7 +167,7 @@ class ArticleScreen extends StatelessWidget {
                       movieData.title,
                       movieData.imageLink,
                       movieData.addedTime,
-                      movieData.contentType
+                      movieData.contentType,
                   ))
                       .toList(),
                 ),

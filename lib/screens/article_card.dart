@@ -1,11 +1,21 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../models/article.dart';
 
-class ArticleCard extends StatelessWidget {
+class ArticleCard extends StatefulWidget {
   final String title;
   final String imageLink;
   final String addedTime;
   final String contentType;
+
   ArticleCard(this.title, this.imageLink, this.addedTime, this.contentType);
+
+  @override
+  _ArticleCardState createState() => _ArticleCardState();
+}
+
+class _ArticleCardState extends State<ArticleCard> {
+  bool isFavourite = false;
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +24,8 @@ class ArticleCard extends StatelessWidget {
       height: 225,
       width: 195,
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(10),
-        child: Card(
+          borderRadius: BorderRadius.circular(10),
+          child: Card(
             child: Wrap(
               children: [
                 Column(
@@ -23,99 +33,119 @@ class ArticleCard extends StatelessWidget {
                     Stack(
                       children: <Widget>[
                         Image.asset(
-                        imageLink,
-                        width: 195,
-                        height: 115,
-                        fit: BoxFit.fitWidth,
-                      ),
-                    Positioned(
-                      bottom: 5,
-                      right: 5,
-                      child: Container(
-                        padding: EdgeInsets.only(left: 5, right: 5),
-                        margin: EdgeInsets.only(right: 5, bottom: 5),
-                        height: 25,
-                        width: 58,
-                        color: Colors.white,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: <Widget>[
-                            Icon(
-                            Icons.favorite,
-                          color: Colors.grey,
-                              size: 15,
+                          widget.imageLink,
+                          width: 195,
+                          height: 115,
+                          fit: BoxFit.fitWidth,
+                        ),
+                        Positioned(
+                          bottom: 5,
+                          right: 8,
+                          child: Container(
+                            color: Colors.white,
+                            //margin: EdgeInsets.only( bottom: 5),
+                            height: 30,
+                            width: 60,
+                            child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                children: <Widget>[
+                                  Container(
+                                    padding: EdgeInsets.all(0.0),
+                                    child: GestureDetector(
+                                      child: Icon(
+                                        (isFavourite
+                                            ? Icons.favorite
+                                            : Icons.favorite_border),
+                                        color: Colors.grey,
+                                        size: 20,
+                                      ),
+                                      onTap: () => toggleFavouriteStatus(),
+                                    ),
+                                  ),
+                                  VerticalDivider(),
+                                  GestureDetector(
+                                    child: Icon(
+                                      Icons.event_note,
+                                      color: Colors.grey,
+                                      size: 20,
+                                    ),
+                                    //constraints: BoxConstraints.tight(Size(15, 25)),
+                                  )
+                                ]),
                           ),
-                            VerticalDivider(),
-                            Icon(
-                              Icons.event_note,
-                              color: Colors.grey,
-                              size: 15,
-                            )
-                        ],),
-                      ),
-                    ),
+                        ),
                       ],
                     ),
-                    Padding(
-                      padding: EdgeInsets.all(15),
-                      child: Text(
-                        title,
-                        style: TextStyle(
-                            fontSize: 16,
-                            color: Color.fromRGBO(49, 67, 89, 0.8),
-                            fontWeight: FontWeight.w900),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 10),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: <Widget>[
-                          Icon(
-                            Icons.access_time,
-                            color: Colors.grey.shade400,
-                            size: 15,
-                          ),
-                          SizedBox(
-                            width: 3,
-                          ),
-                          Text(
-                            addedTime,
-                            style: TextStyle(fontSize: 14, color: Colors.grey),
-                          ),
-                          SizedBox(
-                            width: 15,
-                          ),
-                           (contentType== 'Audio')?Icon(
-                            Icons.audiotrack,
-                            size: 15,
-                            color: Colors.grey.shade400,
-                          )
-                          : (contentType=='Video')? Icon(
-                            Icons.play_arrow,
-                            size: 15,
-                            color: Colors.grey.shade400,
-                          )
-                          :Icon(
-                    Icons.event_note,
-                    size: 15,
-                      color: Colors.grey.shade400,
-                    ),
-                          SizedBox(
-                            width:5 ,
-                          ),
-                          Text(
-                            contentType,
-                            style: TextStyle(fontSize: 13, color: Colors.grey),
-                          )
-                        ],
-                      ),
-                    ), ],
-
+                  ],
                 ),
-                ],)
+                Padding(
+                  padding: EdgeInsets.all(15),
+                  child: Text(
+                    widget.title,
+                    style: TextStyle(
+                        fontSize: 16,
+                        color: Color.fromRGBO(49, 67, 89, 0.8),
+                        fontWeight: FontWeight.w900),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      Icon(
+                        Icons.access_time,
+                        color: Colors.grey.shade400,
+                        size: 15,
+                      ),
+                      SizedBox(
+                        width: 3,
+                      ),
+                      Text(
+                        widget.addedTime,
+                        style: TextStyle(fontSize: 14, color: Colors.grey),
+                      ),
+                      SizedBox(
+                        width: 15,
+                      ),
+                      (widget.contentType == 'Audio')
+                          ? Icon(
+                              Icons.audiotrack,
+                              size: 15,
+                              color: Colors.grey.shade400,
+                            )
+                          : (widget.contentType == 'Video')
+                              ? Icon(
+                                  Icons.play_arrow,
+                                  size: 15,
+                                  color: Colors.grey.shade400,
+                                )
+                              : Icon(
+                                  Icons.event_note,
+                                  size: 15,
+                                  color: Colors.grey.shade400,
+                                ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        widget.contentType,
+                        style: TextStyle(fontSize: 13, color: Colors.grey),
+                      )
+                    ],
+                  ),
+                ),
+              ],
             ),
-          ),
+          )),
     );
   }
+
+  void toggleFavouriteStatus() {
+    setState(() {
+      isFavourite = !isFavourite;
+    });
+  }
+
 }

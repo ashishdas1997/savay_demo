@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'article.dart';
 
-const Recent_Articles=const [
+final Recent_Articles=  [
     Article(id: 'r1',
     title: "Maharastra to close shops,offic...",
     imageLink: "images/elephant.jpg",
@@ -26,7 +26,7 @@ const Recent_Articles=const [
   ),
 ];
 
-const Technology_Articles=const[
+final Technology_Articles=[
   Article(id: 't1',
     title: "Fruitful- Free WordPress...",
     imageLink: "images/wordpress.jpg",
@@ -49,7 +49,7 @@ const Technology_Articles=const[
   ),
 ];
 
-const Movie_Articles=const[
+final Movie_Articles=[
   Article(
       id: 'm1',
       title: "The Shawshank Redemption-Mov.. ",

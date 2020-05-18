@@ -7,13 +7,20 @@ class Article{
   final String imageLink;
   final String addedTime;
   final String contentType;
+  bool isFavourite;
 
-  const Article({
+   Article({
     @required this.id,
     @required this.title,
     @required this.imageLink,
     @required this.addedTime,
-    @required this.contentType
+    @required this.contentType,
+    @required this.isFavourite
 });
+
+  void toggleFavouriteStatus(){
+    isFavourite=!isFavourite;
+
+  }
 
 }
