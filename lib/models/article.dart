@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 
-class Article{
+class Article {
   final String id;
   final String title;
   final String imageLink;
@@ -9,18 +9,15 @@ class Article{
   final String contentType;
   bool isFavourite;
 
-   Article({
-    @required this.id,
-    @required this.title,
-    @required this.imageLink,
-    @required this.addedTime,
-    @required this.contentType,
-    @required this.isFavourite
-});
+  Article(
+      {@required this.id,
+      @required this.title,
+      @required this.imageLink,
+      @required this.addedTime,
+      @required this.contentType,
+      @required this.isFavourite});
 
-  void toggleFavouriteStatus(){
-    isFavourite=!isFavourite;
-
+  void toggleFavouriteStatus() {
+    isFavourite = !isFavourite;
   }
-
 }

@@ -85,11 +85,10 @@ class ArticleScreen extends StatelessWidget {
                 child: Row(
                   children: Recent_Articles.map(
                     (artData) => ArticleCard(
-                        artData.title,
-                        artData.imageLink,
-                        artData.addedTime,
+                      artData.title,
+                      artData.imageLink,
+                      artData.addedTime,
                       artData.contentType,
-
                     ),
                   ).toList(),
                 ),
@@ -127,12 +126,11 @@ class ArticleScreen extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: Technology_Articles.map((techData) => ArticleCard(
-                          techData.title,
-                      techData.imageLink,
-                      techData.addedTime,
-                  techData.contentType,
-                  ))
-                      .toList(),
+                        techData.title,
+                        techData.imageLink,
+                        techData.addedTime,
+                        techData.contentType,
+                      )).toList(),
                 ),
               ),
               Row(
@@ -164,18 +162,16 @@ class ArticleScreen extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: Movie_Articles.map((movieData) => ArticleCard(
-                      movieData.title,
-                      movieData.imageLink,
-                      movieData.addedTime,
-                      movieData.contentType,
-                  ))
-                      .toList(),
+                        movieData.title,
+                        movieData.imageLink,
+                        movieData.addedTime,
+                        movieData.contentType,
+                      )).toList(),
                 ),
               ),
             ],
           ),
         ),
-
         bottomNavigationBar: BottomNavigationBar(
           selectedItemColor: Theme.of(context).accentColor,
           unselectedItemColor: Theme.of(context).primaryColorLight,

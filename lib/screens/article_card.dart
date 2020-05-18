@@ -39,13 +39,13 @@ class _ArticleCardState extends State<ArticleCard> {
                           fit: BoxFit.fitWidth,
                         ),
                         Positioned(
-                          bottom: 5,
+                          bottom: 8,
                           right: 8,
                           child: Container(
                             color: Colors.white,
                             //margin: EdgeInsets.only( bottom: 5),
                             height: 30,
-                            width: 60,
+                            width: 58,
                             child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -58,7 +58,7 @@ class _ArticleCardState extends State<ArticleCard> {
                                             ? Icons.favorite
                                             : Icons.favorite_border),
                                         color: Colors.grey,
-                                        size: 20,
+                                        size: 16,
                                       ),
                                       onTap: () => toggleFavouriteStatus(),
                                     ),
@@ -68,7 +68,7 @@ class _ArticleCardState extends State<ArticleCard> {
                                     child: Icon(
                                       Icons.event_note,
                                       color: Colors.grey,
-                                      size: 20,
+                                      size: 16,
                                     ),
                                     //constraints: BoxConstraints.tight(Size(15, 25)),
                                   )
@@ -147,5 +147,4 @@ class _ArticleCardState extends State<ArticleCard> {
       isFavourite = !isFavourite;
     });
   }
-
 }
