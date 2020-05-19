@@ -45,7 +45,7 @@ final Services = [
       title: "Iot myth part 4 detailed",
       imageLink: "images/iot.jpg",
       addedTime: "3hr ago",
-      contentType: "Video"),
+      contentType: "Audio"),
 
   Article(
     type: 'Movies',

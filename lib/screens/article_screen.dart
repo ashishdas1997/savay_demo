@@ -1,10 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../models/article.dart';
 import '../screens/article_section.dart';
 import '../services/article_services.dart';
-import 'article_card.dart';
-
+import '../screens/category_section.dart';
 class ArticleScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -52,24 +50,52 @@ class ArticleScreen extends StatelessWidget {
             ),
           ),
         ),
-        body: SingleChildScrollView(
-            scrollDirection: Axis.vertical,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children:[
-                Services.map(
-                  (cardData) => ArticleSection(cardData: cardData),
-                ).firstWhere(
-                        (a) => a.cardData.type == 'Recent'),
-                Services.map(
-                  (cardData) => ArticleSection(cardData: cardData),
-                ).firstWhere(
-                    (Article) => Article.cardData.type == ('Technology')),
-                Services.map(
-                  (cardData) => ArticleSection(cardData: cardData),
-                ).firstWhere((Article) => Article.cardData.type == ('Movies')),
-              ],
-            )),
+        body: TabBarView(
+          physics: NeverScrollableScrollPhysics(),
+          children: [ SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children:[
+                  Services.map(
+                    (cardData) => ArticleSection(cardData: cardData),
+                  ).firstWhere(
+                          (a) => a.cardData.type == 'Recent'),
+                  Services.map(
+                    (cardData) => ArticleSection(cardData: cardData),
+                  ).firstWhere(
+                      (Article) => Article.cardData.type == ('Technology')),
+                  Services.map(
+                    (cardData) => ArticleSection(cardData: cardData),
+                  ).firstWhere((Article) => Article.cardData.type == ('Movies')),
+                ],
+              )),
+
+
+            SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children:[
+                    Services.map(
+                          (cardData) => CategorySection(cardData: cardData),
+                    ).firstWhere(
+                            (a) => a.cardData.type == 'Recent'),
+                    Services.map(
+                          (cardData) => CategorySection(cardData: cardData),
+                    ).firstWhere(
+                            (Article) => Article.cardData.type == ('Technology')),
+                    Services.map(
+                          (cardData) => CategorySection(cardData: cardData),
+                    ).firstWhere((Article) => Article.cardData.type == ('Movies')),
+                  ],
+                )
+            ),
+            Container(
+              child: Center(child: Text(' You hav not added any Favourites yet!'))
+            )
+                  ],
+                ),
         bottomNavigationBar: BottomNavigationBar(
           selectedItemColor: Theme.of(context).accentColor,
           unselectedItemColor: Theme.of(context).primaryColorLight,
