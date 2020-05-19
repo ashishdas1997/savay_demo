@@ -11,19 +11,20 @@ class ArticleCard extends StatefulWidget {
 }
 
 class _ArticleCardState extends State<ArticleCard> {
-bool isFavourite=false;
+  bool isFavourite = false;
 
-void toggleFavouriteStatus() {
-  setState(() {
-    print(isFavourite);
-    isFavourite = !isFavourite;
-  });
-}
+  void toggleFavouriteStatus() {
+    setState(() {
+      print(isFavourite);
+      isFavourite = !isFavourite;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(left: 10),
-      height: 225,
+      height: 222,
       width: 195,
       child: ClipRRect(
           borderRadius: BorderRadius.circular(10),
@@ -34,7 +35,8 @@ void toggleFavouriteStatus() {
                   children: <Widget>[
                     Stack(
                       children: <Widget>[
-                        Image.asset(widget.artData.imageLink,
+                        Image.asset(
+                          widget.artData.imageLink,
                           width: 195,
                           height: 115,
                           fit: BoxFit.fitWidth,
@@ -56,7 +58,9 @@ void toggleFavouriteStatus() {
                                     child: GestureDetector(
                                       behavior: HitTestBehavior.translucent,
                                       child: Icon(
-                                        (isFavourite ? Icons.favorite : Icons.favorite_border),
+                                        (isFavourite
+                                            ? Icons.favorite
+                                            : Icons.favorite_border),
                                         color: Colors.grey,
                                         size: 16,
                                       ),
@@ -65,7 +69,7 @@ void toggleFavouriteStatus() {
                                   ),
                                   VerticalDivider(),
                                   GestureDetector(
-                                   child :  Icon(
+                                    child: Icon(
                                       Icons.event_note,
                                       color: Colors.grey,
                                       size: 16,
@@ -141,6 +145,4 @@ void toggleFavouriteStatus() {
           )),
     );
   }
-
-
 }
