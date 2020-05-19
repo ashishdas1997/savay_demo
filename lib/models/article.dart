@@ -11,9 +11,8 @@ class Article {
   bool isFavourite;
 
   Article(
-      {
-        @required this.type,
-        @required this.id,
+      {@required this.type,
+      @required this.id,
       @required this.title,
       @required this.imageLink,
       @required this.addedTime,

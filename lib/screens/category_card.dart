@@ -115,21 +115,21 @@ class _CategoryCardState extends State<CategoryCard> {
                       ),
                       (widget.artData.contentType == 'Audio')
                           ? Icon(
-                        Icons.audiotrack,
-                        size: 15,
-                        color: Colors.grey.shade400,
-                      )
+                              Icons.audiotrack,
+                              size: 15,
+                              color: Colors.grey.shade400,
+                            )
                           : (widget.artData.contentType == 'Video')
-                          ? Icon(
-                        Icons.play_arrow,
-                        size: 15,
-                        color: Colors.grey.shade400,
-                      )
-                          : Icon(
-                        Icons.event_note,
-                        size: 15,
-                        color: Colors.grey.shade400,
-                      ),
+                              ? Icon(
+                                  Icons.play_arrow,
+                                  size: 15,
+                                  color: Colors.grey.shade400,
+                                )
+                              : Icon(
+                                  Icons.event_note,
+                                  size: 15,
+                                  color: Colors.grey.shade400,
+                                ),
                       SizedBox(
                         width: 5,
                       ),

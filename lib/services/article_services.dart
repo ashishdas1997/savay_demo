@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../models/article.dart';
-final Services = [
-    Article(
 
+final Services = [
+  Article(
       type: 'Recent',
       id: 'r1',
       title: "Maharastra to close shops,offic...",
@@ -24,7 +24,6 @@ final Services = [
       imageLink: "images/iot.jpg",
       addedTime: "3hr ago",
       contentType: "Text"),
-
   Article(
       type: 'Technology',
       id: 't1',
@@ -46,9 +45,8 @@ final Services = [
       imageLink: "images/iot.jpg",
       addedTime: "3hr ago",
       contentType: "Audio"),
-
   Article(
-    type: 'Movies',
+      type: 'Movies',
       id: 'm1',
       title: "The Shawshank Redemption-Mov.. ",
       imageLink: "images/shr.jpg",
@@ -68,5 +66,4 @@ final Services = [
       imageLink: "images/fault.jpg",
       addedTime: "1hr ago",
       contentType: "Text"),
-
 ];

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:savaydemo/models/my_colors.dart';
 import 'screens/article_screen.dart';
 
 void main() => runApp(MyApp());
@@ -12,10 +13,10 @@ class MyApp extends StatelessWidget {
       title: 'Savay',
       theme: ThemeData(
           fontFamily: 'sen',
-          primaryColor: Color.fromRGBO(49, 67, 89, 1),
-          primaryColorDark: Colors.grey.shade900,
-          primaryColorLight: Colors.grey.shade700,
-          accentColor: Color.fromRGBO(0, 177, 255, 1)),
+          primaryColor: MyColor.PrimaryColor,
+          primaryColorDark: MyColor.PrimaryDarkColor,
+          primaryColorLight: MyColor.PrimaryLightColor,
+          accentColor: MyColor.PrimaryAssentColor),
       home: Filters(),
     );
   }
