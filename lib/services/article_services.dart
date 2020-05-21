@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/article.dart';
 
-final Services = [
+final AllServices = [
   Article(
       type: 'Recent',
       id: 'r1',

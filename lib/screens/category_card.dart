@@ -1,11 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../services/article_services.dart';
 import '../models/article.dart';
 
 class CategoryCard extends StatefulWidget {
-  final Article artData;
-  CategoryCard({this.artData});
+  final Article categoryData;
+  CategoryCard({this.categoryData});
   @override
   _CategoryCardState createState() => _CategoryCardState();
 }
@@ -36,7 +35,7 @@ class _CategoryCardState extends State<CategoryCard> {
                     Stack(
                       children: <Widget>[
                         Image.asset(
-                          widget.artData.imageLink,
+                          widget.categoryData.imageLink,
                           width: 195,
                           height: 115,
                           fit: BoxFit.fitWidth,
@@ -86,7 +85,7 @@ class _CategoryCardState extends State<CategoryCard> {
                 Padding(
                   padding: EdgeInsets.all(15),
                   child: Text(
-                    widget.artData.title,
+                    widget.categoryData.title,
                     style: TextStyle(
                         fontSize: 16,
                         color: Color.fromRGBO(49, 67, 89, 0.8),
@@ -107,19 +106,19 @@ class _CategoryCardState extends State<CategoryCard> {
                         width: 3,
                       ),
                       Text(
-                        widget.artData.addedTime,
+                        widget.categoryData.addedTime,
                         style: TextStyle(fontSize: 14, color: Colors.grey),
                       ),
                       SizedBox(
                         width: 15,
                       ),
-                      (widget.artData.contentType == 'Audio')
+                      (widget.categoryData.contentType == 'Audio')
                           ? Icon(
                               Icons.audiotrack,
                               size: 15,
                               color: Colors.grey.shade400,
                             )
-                          : (widget.artData.contentType == 'Video')
+                          : (widget.categoryData.contentType == 'Video')
                               ? Icon(
                                   Icons.play_arrow,
                                   size: 15,
@@ -134,7 +133,7 @@ class _CategoryCardState extends State<CategoryCard> {
                         width: 5,
                       ),
                       Text(
-                        widget.artData.contentType,
+                        widget.categoryData.contentType,
                         style: TextStyle(fontSize: 13, color: Colors.grey),
                       )
                     ],

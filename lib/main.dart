@@ -13,18 +13,11 @@ class MyApp extends StatelessWidget {
       title: 'Savay',
       theme: ThemeData(
           fontFamily: 'sen',
-          primaryColor: MyColor.PrimaryColor,
-          primaryColorDark: MyColor.PrimaryDarkColor,
-          primaryColorLight: MyColor.PrimaryLightColor,
-          accentColor: MyColor.PrimaryAssentColor),
-      home: Filters(),
+          primaryColor: MyColor.primaryColor,
+          primaryColorDark: MyColor.primaryDarkColor,
+          primaryColorLight: MyColor.primaryLightColor,
+          accentColor: MyColor.primaryAssentColor),
+      home: ArticleScreen(),
     );
-  }
-}
-
-class Filters extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return ArticleScreen();
   }
 }

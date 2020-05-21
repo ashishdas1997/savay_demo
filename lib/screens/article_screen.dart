@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../screens/article_section.dart';
+import 'package:savaydemo/screens/article_row.dart';
 import '../services/article_services.dart';
-import '../screens/category_section.dart';
+import '../screens/category_row.dart';
 
 class ArticleScreen extends StatelessWidget {
   @override
@@ -59,17 +59,12 @@ class ArticleScreen extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Services.map(
-                      (cardData) => ArticleSection(cardData: cardData),
-                    ).firstWhere((a) => a.cardData.type == 'Recent'),
-                    Services.map(
-                      (cardData) => ArticleSection(cardData: cardData),
-                    ).firstWhere(
-                        (Article) => Article.cardData.type == ('Technology')),
-                    Services.map(
-                      (cardData) => ArticleSection(cardData: cardData),
-                    ).firstWhere(
-                        (Article) => Article.cardData.type == ('Movies')),
+                    ArticleRow(AllServices.where((allServicesData) =>
+                        allServicesData.type == 'Recent').toList()),
+                    ArticleRow(AllServices.where((allServicesData) =>
+                        allServicesData.type == 'Technology').toList()),
+                    ArticleRow(AllServices.where((allServicesData) =>
+                        allServicesData.type == 'Movies').toList())
                   ],
                 )),
             SingleChildScrollView(
@@ -77,17 +72,12 @@ class ArticleScreen extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Services.map(
-                      (cardData) => CategorySection(cardData: cardData),
-                    ).firstWhere((a) => a.cardData.type == 'Recent'),
-                    Services.map(
-                      (cardData) => CategorySection(cardData: cardData),
-                    ).firstWhere(
-                        (Article) => Article.cardData.type == ('Technology')),
-                    Services.map(
-                      (cardData) => CategorySection(cardData: cardData),
-                    ).firstWhere(
-                        (Article) => Article.cardData.type == ('Movies')),
+                    CategoryRow(AllServices.where((allServicesData) =>
+                        allServicesData.contentType == 'Audio').toList()),
+                    CategoryRow(AllServices.where((allServicesData) =>
+                        allServicesData.contentType == 'Video').toList()),
+                    CategoryRow(AllServices.where((allServicesData) =>
+                        allServicesData.contentType == 'Text').toList())
                   ],
                 )),
             Container(
