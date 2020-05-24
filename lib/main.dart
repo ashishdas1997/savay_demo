@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:savaydemo/models/my_colors.dart';
+import 'package:savaydemo/screens/edit_article_screen.dart';
+import 'package:savaydemo/screens/library.dart';
 import 'package:savaydemo/services/article_services.dart';
 import 'screens/article_screen.dart';
 
@@ -26,6 +28,10 @@ class MyApp extends StatelessWidget {
             primaryColorLight: MyColor.primaryLightColor,
             accentColor: MyColor.primaryAssentColor),
         home: ArticleScreen(),
+        routes: {
+          Library.routeName: (ctx) => Library(),
+          EditArticleScreen.routeName: (ctx) => EditArticleScreen(),
+        },
       ),
     );
   }

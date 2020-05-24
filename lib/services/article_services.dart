@@ -74,4 +74,19 @@ List <Article> _items =[
 List<Article> get items{
   return[..._items];
 }
+
+void addArticle(Article article){
+  final newArticle = Article(
+    id: null,
+    type:  article.type,
+    title: article.title,
+    imageLink: article.imageLink,
+    addedTime: article.addedTime,
+    contentType: article.contentType
+  );
+  _items.add(newArticle);
+  _items.insert(0, newArticle);
+notifyListeners();
+}
+
 }

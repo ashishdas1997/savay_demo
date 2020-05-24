@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:savaydemo/screens/edit_article_screen.dart';
 import '../models/article.dart';
 import '../screens/library_screen.dart';
 import '../services/article_services.dart';
 
 class Library extends StatelessWidget {
-  void addArticle(BuildContext ctx){
-    Navigator.of(ctx).push(MaterialPageRoute(
-      builder: (_) {
-        return Library();
-      }
-    ),);
-  }
+  static const routeName = '/library';
   @override
   Widget build(BuildContext context) {
     final articleData= Provider.of<AllServices>(context);
@@ -19,7 +14,10 @@ class Library extends StatelessWidget {
       title: const Text("All Articles"),
       actions: <Widget>[
         IconButton(icon: const Icon(Icons.add),
-        onPressed: ()=> addArticle(context),
+        tooltip: "Add New Article",
+        onPressed: (){
+          Navigator.of(context).pushNamed(EditArticleScreen.routeName);
+        },
         )
       ],
     ),

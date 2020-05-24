@@ -10,11 +10,7 @@ import 'package:provider/provider.dart';
 class ArticleScreen extends StatelessWidget {
   void addArticle(BuildContext ctx)
   {
-    Navigator.of(ctx).push(MaterialPageRoute(
-      builder: (_) {
-        return Library();
-      },
-    ));
+    Navigator.of(ctx).pushNamed(Library.routeName);
   }
   @override
   Widget build(BuildContext context) {
