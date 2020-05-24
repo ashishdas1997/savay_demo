@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import '../models/article.dart';
 
-final AllServices = [
+class AllServices with ChangeNotifier{
+
+List <Article> _items =[
   Article(
       type: 'Recent',
       id: 'r1',
       title: "Maharastra to close shops,offic...",
       imageLink: "images/elephant.jpg",
       addedTime: "13m  ago",
-      contentType: "Audio"),
+      contentType: "Audio"
+),
   Article(
     type: 'Recent',
     id: 'r2',
@@ -67,3 +70,8 @@ final AllServices = [
       addedTime: "1hr ago",
       contentType: "Text"),
 ];
+
+List<Article> get items{
+  return[..._items];
+}
+}

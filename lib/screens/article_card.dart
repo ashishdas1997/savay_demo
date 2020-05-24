@@ -16,9 +16,11 @@ class _ArticleCardState extends State<ArticleCard> {
   @override
   Widget build(BuildContext context) {
     void toggleFavouriteStatus() {
-      setState(() {
-        isFavourite = !isFavourite;
-      });
+      setState(
+        () {
+          isFavourite = !isFavourite;
+        },
+      );
     }
 
     return Container(
