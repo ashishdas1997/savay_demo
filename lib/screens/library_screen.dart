@@ -7,7 +7,8 @@ class LibraryScreen extends StatelessWidget {
   final String imageLink;
   final String contentType;
   final String addedTime;
-  LibraryScreen(this.title,this.imageLink, this.contentType, this.addedTime);
+  final String id;
+  LibraryScreen(this.title,this.imageLink, this.contentType, this.addedTime, this.id);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class LibraryScreen extends StatelessWidget {
         icon: Icon(Icons.delete),
         color: Theme.of(context).errorColor,
         onPressed: (){
-          Provider.of<AllServices>(context, listen: false).deleteArticles(title);
+          Provider.of<AllServices>(context, listen: false).deleteArticles(id);
         },
       )
     );

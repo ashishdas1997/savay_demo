@@ -27,7 +27,8 @@ class Library extends StatelessWidget {
       itemBuilder: (_, i) => LibraryScreen(articleData.items[i].title,
       articleData.items[i].imageLink,
         articleData.items[i].contentType,
-          articleData.items[i].addedTime
+          articleData.items[i].addedTime,
+        articleData.items[i].id
       ),
       ),
     ),

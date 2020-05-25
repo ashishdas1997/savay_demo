@@ -77,33 +77,65 @@ List<Article> get items{
   return[..._items];
 }
 
-void addArticle(Article article){
+Future<void> fetchArticles() async{
   const url = "https://savaydemonew.firebaseio.com/articles.json";
-  http.post(url, body: json.encode({
+  final response = await http.get(url);
+  final extractedData =json.decode(response.body) as Map<String, dynamic>;
+  final List<Article> loadedArticles=[];
+  extractedData.forEach((artId, artData){
+    loadedArticles.add(Article(
+
+      id: artId,
+      title: artData['title'],
+      contentType: artData['contentType'],
+      type: artData['type'],
+      addedTime: artData['addedTime'],
+      imageLink: artData['imageLink'],
+      isFavourite: artData['isFavourite'],
+    ));
+  });
+  _items= loadedArticles;
+  notifyListeners();
+}
+
+
+Future<void> addArticle(Article article){
+  const url = "https://savaydemonew.firebaseio.com/articles.json";
+  return http.post(url, body: json.encode({
     'title' : article.title,
     'type' : article.type,
     "imageLink" : article.imageLink,
     'addedTime': article.addedTime,
     "contentType": article.contentType,
-    "isFavourite": article.isFavourite
+    "isFavourite": article.isFavourite,
 
   })
 
-  );
-  final newArticle = Article(
-    id: null,
-    type:  article.type,
-    title: article.title,
-    imageLink: article.imageLink,
-    addedTime: article.addedTime,
-    contentType: article.contentType
-  );
-  _items.insert(0, newArticle);
-notifyListeners();
+  ).then((response){
+    final newArticle = Article(
+        id: json.decode(response.body)['name'],
+        type:  article.type,
+        title: article.title,
+        imageLink: article.imageLink,
+        addedTime: article.addedTime,
+        contentType: article.contentType
+    );
+    _items.insert(0, newArticle);
+    notifyListeners();
+  });
+
+
 }
 
-void deleteArticles(String title){
-  _items.removeWhere((article) => article.title==title);
+void deleteArticles(String id){
+  final url = "https://savaydemonew.firebaseio.com/articles/$id.json";
+  final existingArticleIndex= _items.indexWhere((article) => article.id==id);
+  var existingArticle = _items[existingArticleIndex];
+  _items.removeAt(existingArticleIndex);
+  http.delete(url).then((_){
+    existingArticle= null;
+
+  });
   notifyListeners();
 }
 

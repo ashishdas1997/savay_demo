@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:savaydemo/screens/category_card.dart';
 import '../models/article.dart';
 import '../services/article_services.dart';
 
@@ -23,6 +24,8 @@ class _EditArticleScreenState extends State<EditArticleScreen> {
       type: "",
       addedTime: "");
 
+  var isLoading = false;
+
   @override
   void dispose() {
     imageLinkFocusNode.dispose();
@@ -38,8 +41,15 @@ class _EditArticleScreenState extends State<EditArticleScreen> {
       return;
     }
     form.currentState.save();
-    Provider.of<AllServices>(context, listen: false).addArticle(editedArticle);
-    Navigator.of(context).pop();
+    setState(() {
+      isLoading= true;
+    });
+    Provider.of<AllServices>(context, listen: false).addArticle(editedArticle).then((_){
+      setState(() {
+        isLoading=false;
+      });
+      Navigator.of(context).pop();
+    });
   }
 
   @override
@@ -54,7 +64,10 @@ class _EditArticleScreenState extends State<EditArticleScreen> {
           )
         ],
       ),
-      body: Padding(
+      body: isLoading? Center(
+        child: CircularProgressIndicator(),
+      )
+          :Padding(
         padding: const EdgeInsets.all(15.0),
         child: Form(
           key: form,

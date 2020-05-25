@@ -7,11 +7,19 @@ import '../services/article_services.dart';
 import '../screens/category_row.dart';
 import 'package:provider/provider.dart';
 
-class ArticleScreen extends StatelessWidget {
+class ArticleScreen extends StatefulWidget {
+  @override
+  _ArticleScreenState createState() => _ArticleScreenState();
+}
+
+class _ArticleScreenState extends State<ArticleScreen> {
+  @override
+
   void addArticle(BuildContext ctx)
   {
     Navigator.of(ctx).pushNamed(Library.routeName);
   }
+
   @override
   Widget build(BuildContext context) {
     final artData= Provider.of<AllServices>(context);
