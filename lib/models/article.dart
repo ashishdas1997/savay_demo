@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 
-class Article with ChangeNotifier{
+class Article with ChangeNotifier {
   final String type;
   final String id;
   final String title;

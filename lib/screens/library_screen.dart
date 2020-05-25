@@ -8,24 +8,23 @@ class LibraryScreen extends StatelessWidget {
   final String contentType;
   final String addedTime;
   final String id;
-  LibraryScreen(this.title,this.imageLink, this.contentType, this.addedTime, this.id);
+  LibraryScreen(
+      this.title, this.imageLink, this.contentType, this.addedTime, this.id);
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(title: Text(
-      title
-    ),
-    subtitle:Text(contentType) ,
-    leading: CircleAvatar(backgroundImage: AssetImage(imageLink),
-
-    ),
-      trailing: IconButton(
-        icon: Icon(Icons.delete),
-        color: Theme.of(context).errorColor,
-        onPressed: (){
-          Provider.of<AllServices>(context, listen: false).deleteArticles(id);
-        },
-      )
-    );
+    return ListTile(
+        title: Text(title),
+        subtitle: Text(contentType),
+        leading: CircleAvatar(
+          backgroundImage: AssetImage(imageLink),
+        ),
+        trailing: IconButton(
+          icon: Icon(Icons.delete),
+          color: Theme.of(context).errorColor,
+          onPressed: () {
+            Provider.of<AllServices>(context, listen: false).deleteArticles(id);
+          },
+        ));
   }
 }

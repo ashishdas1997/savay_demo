@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:savaydemo/screens/article_row.dart';
 import 'package:savaydemo/services/article_services.dart';
 import '../models/article.dart';
 
@@ -15,7 +16,6 @@ class ArticleCard extends StatefulWidget {
 
 class _ArticleCardState extends State<ArticleCard> {
   bool isFavourite = false;
-
 
   @override
   Widget build(BuildContext context) {
