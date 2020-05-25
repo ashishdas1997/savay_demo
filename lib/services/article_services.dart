@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/article.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class AllServices with ChangeNotifier{
 
@@ -76,6 +78,18 @@ List<Article> get items{
 }
 
 void addArticle(Article article){
+  const url = "https://savaydemonew.firebaseio.com/articles.json";
+  http.post(url, body: json.encode({
+    'title' : article.title,
+    'type' : article.type,
+    "imageLink" : article.imageLink,
+    'addedTime': article.addedTime,
+    "contentType": article.contentType,
+    "isFavourite": article.isFavourite
+
+  })
+
+  );
   final newArticle = Article(
     id: null,
     type:  article.type,
@@ -84,9 +98,13 @@ void addArticle(Article article){
     addedTime: article.addedTime,
     contentType: article.contentType
   );
-  _items.add(newArticle);
   _items.insert(0, newArticle);
 notifyListeners();
+}
+
+void deleteArticles(String title){
+  _items.removeWhere((article) => article.title==title);
+  notifyListeners();
 }
 
 }

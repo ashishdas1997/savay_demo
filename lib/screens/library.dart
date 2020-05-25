@@ -26,7 +26,8 @@ class Library extends StatelessWidget {
       child: ListView.builder(itemCount:articleData.items.length,
       itemBuilder: (_, i) => LibraryScreen(articleData.items[i].title,
       articleData.items[i].imageLink,
-        articleData.items[i].contentType
+        articleData.items[i].contentType,
+          articleData.items[i].addedTime
       ),
       ),
     ),
