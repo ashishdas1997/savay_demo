@@ -15,6 +15,22 @@ class ArticleCard extends StatefulWidget {
 }
 
 class _ArticleCardState extends State<ArticleCard> {
+  var isInit = true;
+  @override
+  void initState() {
+    AllServices().fetchArticles();
+    super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    if (isInit) {
+      Provider.of<AllServices>(context);
+    }
+    isInit = false;
+    super.didChangeDependencies();
+  }
+
   bool isFavourite = false;
 
   @override

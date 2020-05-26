@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:savaydemo/screens/library.dart';
-import '../screens/library_screen.dart';
 import '../screens/article_row.dart';
 import '../services/article_services.dart';
 import '../screens/category_row.dart';
@@ -22,7 +21,7 @@ class _ArticleScreenState extends State<ArticleScreen> {
   @override
   void didChangeDependencies() {
     if (isInit) {
-      Provider.of<AllServices>(context).fetchArticles();
+      AllServices().fetchArticles();
     }
     isInit = false;
     super.didChangeDependencies();
@@ -35,7 +34,8 @@ class _ArticleScreenState extends State<ArticleScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final artData = Provider.of<AllServices>(context);
+    var artData = Provider.of<AllServices>(context);
+
     return DefaultTabController(
       length: 3,
       child: Scaffold(
@@ -90,7 +90,7 @@ class _ArticleScreenState extends State<ArticleScreen> {
                   children: [
                     ArticleRow(artData.items
                         .where((allServicesData) =>
-                            allServicesData.type == 'Recent')
+                            allServicesData.type == "Recent")
                         .toList()),
                     ArticleRow(artData.items
                         .where((allServicesData) =>

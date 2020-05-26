@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:savaydemo/models/article.dart';
+import 'package:savaydemo/services/article_services.dart';
 import '../screens/article_card.dart';
+import 'package:provider/provider.dart';
 
-class ArticleRow extends StatelessWidget {
+class ArticleRow extends StatefulWidget {
   final List rowArticles;
   ArticleRow(this.rowArticles);
 
+  @override
+  _ArticleRowState createState() => _ArticleRowState();
+}
+
+class _ArticleRowState extends State<ArticleRow> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -15,7 +23,7 @@ class ArticleRow extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(top: 22, bottom: 10, left: 8),
               child: Text(
-                rowArticles.first.type,
+                widget.rowArticles.first.type,
                 style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w900,
@@ -37,7 +45,7 @@ class ArticleRow extends StatelessWidget {
         SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
-              children: rowArticles
+              children: widget.rowArticles
                   .map(
                     (articleData) => ArticleCard(aisleData: articleData),
                   )
